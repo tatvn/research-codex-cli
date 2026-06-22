@@ -5,7 +5,7 @@
 
 @section('content')
     <!-- Stats Cards -->
-    <div class="row mb-4">
+    <div class="row g-3 mb-4">
         <div class="col-md-3 col-sm-6 mb-3">
             <div class="card stat-card">
                 <div class="card-body d-flex align-items-center gap-3">
@@ -13,8 +13,8 @@
                         <i class="bi bi-tags-fill"></i>
                     </div>
                     <div>
-                        <p class="text-muted mb-0 small">Loại sản phẩm</p>
-                        <h4 class="mb-0 fw-bold">{{ number_format($stats['totalCategories']) }}</h4>
+                        <p class="stat-label">Loại sản phẩm</p>
+                        <h4 class="stat-value mb-0">{{ number_format($stats['totalCategories']) }}</h4>
                     </div>
                 </div>
             </div>
@@ -26,8 +26,8 @@
                         <i class="bi bi-box-seam-fill"></i>
                     </div>
                     <div>
-                        <p class="text-muted mb-0 small">Sản phẩm</p>
-                        <h4 class="mb-0 fw-bold">{{ number_format($stats['totalProducts']) }}</h4>
+                        <p class="stat-label">Sản phẩm</p>
+                        <h4 class="stat-value mb-0">{{ number_format($stats['totalProducts']) }}</h4>
                     </div>
                 </div>
             </div>
@@ -39,8 +39,8 @@
                         <i class="bi bi-cart-check-fill"></i>
                     </div>
                     <div>
-                        <p class="text-muted mb-0 small">Đơn hàng</p>
-                        <h4 class="mb-0 fw-bold">{{ number_format($stats['totalOrders']) }}</h4>
+                        <p class="stat-label">Đơn hàng</p>
+                        <h4 class="stat-value mb-0">{{ number_format($stats['totalOrders']) }}</h4>
                     </div>
                 </div>
             </div>
@@ -52,8 +52,8 @@
                         <i class="bi bi-people-fill"></i>
                     </div>
                     <div>
-                        <p class="text-muted mb-0 small">Khách hàng</p>
-                        <h4 class="mb-0 fw-bold">{{ number_format($stats['totalCustomers']) }}</h4>
+                        <p class="stat-label">Khách hàng</p>
+                        <h4 class="stat-value mb-0">{{ number_format($stats['totalCustomers']) }}</h4>
                     </div>
                 </div>
             </div>
@@ -61,7 +61,7 @@
     </div>
 
     <!-- Revenue & Pending -->
-    <div class="row mb-4">
+    <div class="row g-3 mb-4">
         <div class="col-md-6 mb-3">
             <div class="card stat-card">
                 <div class="card-body d-flex align-items-center gap-3">
@@ -69,8 +69,8 @@
                         <i class="bi bi-currency-dollar"></i>
                     </div>
                     <div>
-                        <p class="text-muted mb-0 small">Tổng doanh thu</p>
-                        <h4 class="mb-0 fw-bold">{{ number_format($stats['totalRevenue'], 0, ',', '.') }} ₫</h4>
+                        <p class="stat-label">Tổng doanh thu</p>
+                        <h4 class="stat-value mb-0">{{ number_format($stats['totalRevenue'], 0, ',', '.') }} ₫</h4>
                     </div>
                 </div>
             </div>
@@ -82,8 +82,8 @@
                         <i class="bi bi-clock-fill"></i>
                     </div>
                     <div>
-                        <p class="text-muted mb-0 small">Đơn hàng chờ xử lý</p>
-                        <h4 class="mb-0 fw-bold">{{ number_format($stats['pendingOrders']) }}</h4>
+                        <p class="stat-label">Đơn hàng chờ xử lý</p>
+                        <h4 class="stat-value mb-0">{{ number_format($stats['pendingOrders']) }}</h4>
                     </div>
                 </div>
             </div>
@@ -92,8 +92,9 @@
 
     <!-- Recent Orders -->
     <div class="card table-card">
-        <div class="card-header bg-white py-3">
+        <div class="card-header bg-white py-3 d-flex align-items-center justify-content-between">
             <h5 class="mb-0 fw-bold">Đơn hàng gần đây</h5>
+            <span class="badge rounded-pill text-bg-light">Mới nhất</span>
         </div>
         <div class="card-body p-0">
             <div class="table-responsive">
@@ -136,7 +137,10 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="5" class="text-center text-muted py-4">Chưa có đơn hàng nào.</td>
+                                <td colspan="5" class="text-center empty-state">
+                                    <i class="bi bi-receipt fs-1 d-block mb-2"></i>
+                                    Chưa có đơn hàng nào.
+                                </td>
                             </tr>
                         @endforelse
                     </tbody>
