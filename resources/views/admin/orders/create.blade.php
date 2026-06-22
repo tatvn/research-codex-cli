@@ -75,7 +75,7 @@
                                    placeholder="Đơn giá" min="0" step="1000" required>
                         </div>
                         <div class="col-md-2">
-                            <button type="button" class="btn btn-outline-danger btn-remove-item" disabled>
+                            <button type="button" class="btn btn-outline-danger btn-remove-item" disabled aria-label="Xóa sản phẩm">
                                 <i class="bi bi-trash"></i>
                             </button>
                         </div>

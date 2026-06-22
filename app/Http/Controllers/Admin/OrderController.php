@@ -44,18 +44,23 @@ class OrderController extends Controller
             ]);
 
             $totalAmount = 0;
+            $items = [];
+            $now = now();
 
             foreach ($data['items'] as $item) {
-                OrderItem::create([
+                $items[] = [
                     'order_id' => $order->id,
                     'product_id' => $item['product_id'],
                     'quantity' => $item['quantity'],
                     'price' => $item['price'],
-                ]);
+                    'created_at' => $now,
+                    'updated_at' => $now,
+                ];
 
                 $totalAmount += $item['quantity'] * $item['price'];
             }
 
+            OrderItem::insert($items);
             $order->update(['total_amount' => $totalAmount]);
         });
 

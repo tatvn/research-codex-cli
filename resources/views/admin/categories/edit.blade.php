@@ -39,8 +39,8 @@
                     <label for="status" class="form-label fw-semibold">Trạng thái <span class="text-danger">*</span></label>
                     <select class="form-select @error('status') is-invalid @enderror"
                             id="status" name="status" required>
-                        <option value="1" {{ old('status', $category->status) ? 'selected' : '' }}>Hoạt động</option>
-                        <option value="0" {{ !old('status', $category->status) ? 'selected' : '' }}>Tắt</option>
+                        <option value="1" {{ old('status', $category->status) == '1' ? 'selected' : '' }}>Hoạt động</option>
+                        <option value="0" {{ old('status', $category->status) == '0' ? 'selected' : '' }}>Tắt</option>
                     </select>
                     @error('status')
                         <div class="invalid-feedback">{{ $message }}</div>

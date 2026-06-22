@@ -28,9 +28,8 @@ class DatabaseSeeder extends Seeder
         // Create 20 Products distributed across categories
         $products = collect();
         foreach ($categories as $category) {
-            $count = $category->id <= 4 ? 4 : 4;
             $products = $products->merge(
-                Product::factory($count)->create([
+                Product::factory(4)->create([
                     'category_id' => $category->id,
                 ])
             );

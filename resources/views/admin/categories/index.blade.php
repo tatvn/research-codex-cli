@@ -43,11 +43,11 @@
                                 </td>
                                 <td class="text-center">
                                     <a href="{{ route('admin.categories.show', $category) }}"
-                                       class="btn btn-sm btn-outline-info" title="Xem">
+                                       class="btn btn-sm btn-outline-info" title="Xem" aria-label="Xem loại sản phẩm">
                                         <i class="bi bi-eye"></i>
                                     </a>
                                     <a href="{{ route('admin.categories.edit', $category) }}"
-                                       class="btn btn-sm btn-outline-warning" title="Sửa">
+                                       class="btn btn-sm btn-outline-warning" title="Sửa" aria-label="Sửa loại sản phẩm">
                                         <i class="bi bi-pencil-square"></i>
                                     </a>
                                     <form action="{{ route('admin.categories.destroy', $category) }}"
@@ -55,7 +55,7 @@
                                           onsubmit="return confirm('Bạn có chắc chắn muốn xóa loại sản phẩm này?')">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-sm btn-outline-danger" title="Xóa">
+                                        <button type="submit" class="btn btn-sm btn-outline-danger" title="Xóa" aria-label="Xóa loại sản phẩm">
                                             <i class="bi bi-trash"></i>
                                         </button>
                                     </form>

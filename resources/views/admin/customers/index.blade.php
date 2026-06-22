@@ -37,11 +37,11 @@
                                 </td>
                                 <td class="text-center">
                                     <a href="{{ route('admin.customers.show', $customer) }}"
-                                       class="btn btn-sm btn-outline-info" title="Xem">
+                                       class="btn btn-sm btn-outline-info" title="Xem" aria-label="Xem khách hàng">
                                         <i class="bi bi-eye"></i>
                                     </a>
                                     <a href="{{ route('admin.customers.edit', $customer) }}"
-                                       class="btn btn-sm btn-outline-warning" title="Sửa">
+                                       class="btn btn-sm btn-outline-warning" title="Sửa" aria-label="Sửa khách hàng">
                                         <i class="bi bi-pencil-square"></i>
                                     </a>
                                     <form action="{{ route('admin.customers.destroy', $customer) }}"
@@ -49,7 +49,7 @@
                                           onsubmit="return confirm('Bạn có chắc chắn muốn xóa khách hàng này?')">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-sm btn-outline-danger" title="Xóa">
+                                        <button type="submit" class="btn btn-sm btn-outline-danger" title="Xóa" aria-label="Xóa khách hàng">
                                             <i class="bi bi-trash"></i>
                                         </button>
                                     </form>

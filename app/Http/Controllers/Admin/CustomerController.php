@@ -49,6 +49,7 @@ class CustomerController extends Controller
 
     public function show(User $customer): View
     {
+        abort_if($customer->role !== 'customer', 404);
         $customer->load('orders');
 
         return view('admin.customers.show', compact('customer'));
@@ -56,11 +57,15 @@ class CustomerController extends Controller
 
     public function edit(User $customer): View
     {
+        abort_if($customer->role !== 'customer', 404);
+
         return view('admin.customers.edit', compact('customer'));
     }
 
     public function update(Request $request, User $customer): RedirectResponse
     {
+        abort_if($customer->role !== 'customer', 404);
+
         $data = $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => [
@@ -88,6 +93,8 @@ class CustomerController extends Controller
 
     public function destroy(User $customer): RedirectResponse
     {
+        abort_if($customer->role !== 'customer', 404);
+
         $customer->delete();
 
         return redirect()

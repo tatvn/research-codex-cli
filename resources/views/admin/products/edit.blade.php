@@ -87,8 +87,8 @@
                             <label for="status" class="form-label fw-semibold">Trạng thái <span class="text-danger">*</span></label>
                             <select class="form-select @error('status') is-invalid @enderror"
                                     id="status" name="status" required>
-                                <option value="1" {{ old('status', $product->status) ? 'selected' : '' }}>Đang bán</option>
-                                <option value="0" {{ !old('status', $product->status) ? 'selected' : '' }}>Ngừng bán</option>
+                                <option value="1" {{ old('status', $product->status) == '1' ? 'selected' : '' }}>Đang bán</option>
+                                <option value="0" {{ old('status', $product->status) == '0' ? 'selected' : '' }}>Ngừng bán</option>
                             </select>
                             @error('status')
                                 <div class="invalid-feedback">{{ $message }}</div>

@@ -61,11 +61,11 @@
                                 </td>
                                 <td class="text-center">
                                     <a href="{{ route('admin.products.show', $product) }}"
-                                       class="btn btn-sm btn-outline-info" title="Xem">
+                                       class="btn btn-sm btn-outline-info" title="Xem" aria-label="Xem sản phẩm">
                                         <i class="bi bi-eye"></i>
                                     </a>
                                     <a href="{{ route('admin.products.edit', $product) }}"
-                                       class="btn btn-sm btn-outline-warning" title="Sửa">
+                                       class="btn btn-sm btn-outline-warning" title="Sửa" aria-label="Sửa sản phẩm">
                                         <i class="bi bi-pencil-square"></i>
                                     </a>
                                     <form action="{{ route('admin.products.destroy', $product) }}"
@@ -73,7 +73,7 @@
                                           onsubmit="return confirm('Bạn có chắc chắn muốn xóa sản phẩm này?')">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-sm btn-outline-danger" title="Xóa">
+                                        <button type="submit" class="btn btn-sm btn-outline-danger" title="Xóa" aria-label="Xóa sản phẩm">
                                             <i class="bi bi-trash"></i>
                                         </button>
                                     </form>
