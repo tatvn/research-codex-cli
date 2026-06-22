@@ -220,7 +220,13 @@
                 <h5 class="mb-0">@yield('page-title', 'Dashboard')</h5>
             </div>
             <div class="d-flex align-items-center gap-3">
-                <span class="text-muted">Admin</span>
+                <span class="text-muted">{{ auth()->user()->name ?? 'Admin' }}</span>
+                <form method="POST" action="{{ route('logout') }}" class="mb-0">
+                    @csrf
+                    <button type="submit" class="btn btn-sm btn-outline-danger">
+                        <i class="bi bi-box-arrow-right me-1"></i> Dang xuat
+                    </button>
+                </form>
                 <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center"
                      style="width: 35px; height: 35px;">
                     <i class="bi bi-person-fill"></i>
